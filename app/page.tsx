@@ -14,6 +14,7 @@ import Education from "@/components/Education";
 import { Achievements } from "@/components/Achievements";
 import { Certificates } from "@/components/Certificates";
 import { TracingBeam } from "@/components/ui/TracingBeam";
+import { TechStack } from "@/components/TechStack";
 
 const Home = () => {
   return (
@@ -23,6 +24,7 @@ const Home = () => {
         <TracingBeam className="px-4 sm:px-6">
           <Hero />
           <Grid />
+          <TechStack />
           <Education />
           <RecentProjects />
           {/* <Clients /> */}

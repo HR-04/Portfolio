@@ -43,7 +43,7 @@ const Hero = () => {
             automation and fine-tuning of Large Language Models.
           </p>
 
-          <a href="#about">
+          <a href="#projects">
             <MagicButton
               title="Explore My AI Projects"
               icon={<FaLocationArrow />}

@@ -83,3 +83,67 @@
     @apply font-bold text-4xl md:text-5xl text-center;
   }
 }
+
+/* Tech Stack Animation */
+.tech-icon {
+  transition: all 0.3s ease;
+}
+
+.tech-icon:hover {
+  filter: drop-shadow(0 0 8px rgba(139, 92, 246, 0.6));
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .tech-row {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+  }
+  
+  .tech-icon-container {
+    width: 3.5rem;
+    height: 3.5rem;
+  }
+}
+
+/* ===== Scrollbar CSS ===== */
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #7c3aed #0f0e17;
+}
+
+/* Chrome, Edge, and Safari */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0f0e17;
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #7c3aed;
+  border-radius: 6px;
+  border: 3px solid #0f0e17;
+  background-clip: content-box;
+  transition: all 0.2s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #8b5cf6;
+  transform: scale(1.05);
+}
+
+/* For dark/light mode support */
+@media (prefers-color-scheme: dark) {
+  ::-webkit-scrollbar-track {
+    background: #0f0e17;
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: #7c3aed;
+    border-color: #0f0e17;
+  }
+}

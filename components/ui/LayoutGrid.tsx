@@ -74,7 +74,7 @@ const BlurImage = ({ card }: { card: Card }) => {
           "object-cover transition duration-200",
           loaded ? "blur-none" : "blur-md"
         )}
-        onLoadingComplete={() => setLoaded(true)}
+        onLoad={() => setLoaded(true)}
       />
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/70" />
     </>
