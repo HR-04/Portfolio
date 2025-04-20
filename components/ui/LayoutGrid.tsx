@@ -1,9 +1,8 @@
 "use client";
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
-import { Button } from "./MovingBorders";
 
 type Card = {
   id: number;
@@ -27,52 +26,37 @@ export const LayoutGrid = ({ cards }: { cards: Card[] }) => {
   };
 
   return (
-    // change md:grid-cols-3 to md:grid-cols-4, gap-4 to gap-10
-    <div className="w-full h-full p-10 grid grid-cols-1 md:grid-cols-4 max-w-7xl mx-auto gap-10 ">
+    <div className="w-full h-full p-4 grid grid-cols-1 md:grid-cols-3 max-w-7xl mx-auto gap-4 relative">
       {cards.map((card, i) => (
-        <Button
+        <div
           key={i}
-          borderRadius="1.75rem"
-          //   default is 2000
-          duration={10000}
-          //   add className={cn(card.className, "")}
           className={cn(
-            card.className
-            // "bg-white dark:bg-slate-900 text-black dark:text-white border-neutral-200 dark:border-slate-800"
+            card.className,
+            "relative h-[300px] md:h-[400px]" // Added fixed height
           )}
         >
-          <div
+          <motion.div
+            onClick={() => handleClick(card)}
             className={cn(
-              card.className,
-              "relative border-3 border-yellow-500"
+              "relative overflow-hidden rounded-xl h-full w-full",
+              selected?.id === card.id
+                ? "fixed inset-0 m-auto z-50 w-[80%] h-[80%]"
+                : "cursor-pointer"
             )}
+            layout
           >
-            <motion.div
-              onClick={() => handleClick(card)}
-              className={cn(
-                card.className,
-                "relative overflow-hidden",
-                selected?.id === card.id
-                  ? "rounded-lg cursor-pointer absolute inset-0 h-1/2 w-full md:w-1/2 m-auto z-50 flex justify-center items-center flex-wrap flex-col"
-                  : lastSelected?.id === card.id
-                  ? "z-40 bg-white rounded-xl h-full w-full"
-                  : "bg-white rounded-xl h-full w-full"
-              )}
-              layout
-            >
-              {selected?.id === card.id && <SelectedCard selected={selected} />}
-              <BlurImage card={card} />
-            </motion.div>
-          </div>
-        </Button>
+            <BlurImage card={card} />
+            {selected?.id === card.id && <SelectedCard selected={selected} />}
+          </motion.div>
+        </div>
       ))}
       <motion.div
         onClick={handleOutsideClick}
         className={cn(
-          "absolute h-full w-full left-0 top-0 bg-black opacity-0 z-10",
+          "fixed inset-0 bg-black/70 z-40",
           selected?.id ? "pointer-events-auto" : "pointer-events-none"
         )}
-        animate={{ opacity: selected?.id ? 0.3 : 0 }}
+        animate={{ opacity: selected?.id ? 1 : 0 }}
       />
     </div>
   );
@@ -81,50 +65,33 @@ export const LayoutGrid = ({ cards }: { cards: Card[] }) => {
 const BlurImage = ({ card }: { card: Card }) => {
   const [loaded, setLoaded] = useState(false);
   return (
-    <Image
-      src={card.thumbnail}
-      //   change image scale 500 to 100
-      height="100"
-      width="100"
-      onLoad={() => setLoaded(true)}
-      className={cn(
-        "object-cover object-top absolute inset-0 h-full w-full transition duration-200",
-        loaded ? "blur-none" : "blur-md"
-      )}
-      alt="thumbnail"
-    />
+    <>
+      <Image
+        src={card.thumbnail}
+        fill
+        alt="thumbnail"
+        className={cn(
+          "object-cover transition duration-200",
+          loaded ? "blur-none" : "blur-md"
+        )}
+        onLoadingComplete={() => setLoaded(true)}
+      />
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/70" />
+    </>
   );
 };
 
 const SelectedCard = ({ selected }: { selected: Card | null }) => {
   return (
-    <div className="bg-transparent h-full w-full flex flex-col justify-end rounded-lg shadow-2xl relative z-[60]">
-      <motion.div
-        initial={{
-          opacity: 0,
-        }}
-        animate={{
-          opacity: 0.6,
-        }}
-        className="absolute inset-0 h-full w-full bg-black opacity-60 z-10"
-      />
-      <motion.div
-        initial={{
-          opacity: 0,
-          y: 100,
-        }}
-        animate={{
-          opacity: 1,
-          y: 0,
-        }}
-        transition={{
-          duration: 0.3,
-          ease: "easeInOut",
-        }}
-        className="relative px-8 pb-4 z-[70]"
-      >
+    <motion.div
+      className="absolute inset-0 flex items-end p-6 z-10"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.3 }}
+    >
+      <div className="w-full bg-black/70 p-6 rounded-lg backdrop-blur-sm">
         {selected?.content}
-      </motion.div>
-    </div>
+      </div>
+    </motion.div>
   );
 };
