@@ -13,22 +13,25 @@ import { FloatingNav } from "@/components/ui/FloatingNavbar";
 import Education from "@/components/Education";
 import { Achievements } from "@/components/Achievements";
 import { Certificates } from "@/components/Certificates";
+import { TracingBeam } from "@/components/ui/TracingBeam";
 
 const Home = () => {
   return (
     <main className="relative bg-black-100 flex justify-center items-center flex-col overflow-hidden mx-auto sm:px-10 px-5">
       <div className="max-w-7xl w-full">
         <FloatingNav navItems={navItems} />
-        <Hero />
-        <Grid />
-        <Education />
-        <RecentProjects />
-        {/* <Clients /> */}
-        <Achievements />
-        <Certificates />
-        <Experience />
-        {/* <Approach /> */}
-        <Footer />
+        <TracingBeam className="px-4 sm:px-6">
+          <Hero />
+          <Grid />
+          <Education />
+          <RecentProjects />
+          {/* <Clients /> */}
+          <Achievements />
+          <Certificates />
+          <Experience />
+          {/* <Approach /> */}
+          <Footer />
+        </TracingBeam>
       </div>
     </main>
   );

@@ -67,6 +67,12 @@ export const BentoGridItem = ({
     navigator.clipboard.writeText(text);
     setCopied(true);
   };
+    const handleView = () => {
+    window.open(
+      "https://drive.google.com/file/d/1nEoTyeXNLfmTNrNHom61i7L4C6-QZxm9/view?usp=sharing",
+      "_blank"
+    );
+  }
 
   return (
     <div
@@ -161,10 +167,10 @@ export const BentoGridItem = ({
               </div>
 
               <MagicButton
-                title={copied ? "Email is Copied!" : "Copy my email address"}
+                title= " View Resume"
                 icon={<IoCopyOutline />}
                 position="left"
-                handleClick={handleCopy}
+                handleClick={handleView}
                 otherClasses="!bg-[#161A31]"
               />
             </div>
