@@ -17,31 +17,28 @@ interface GitHubProject {
   };
 }
 
-const GitHubProjects = () => {
+export default function GitHubProjects() {
   const [projects, setProjects] = useState<GitHubProject[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchProjects = async () => {
       try {
-        const starredResponse = await axios.get(
+        const response = await axios.get(
           "https://api.github.com/users/HR-04/starred"
         );
-        const starredOwnProjects = starredResponse.data.filter(
-          (project: GitHubProject) =>
-            project.owner.login === "HR-04"
+        const myProjects = response.data.filter(
+          (project: GitHubProject) => project.owner.login === "HR-04"
         );
-
-        setProjects(starredOwnProjects);
+        setProjects(myProjects);
       } catch (error) {
         console.error("Error fetching GitHub projects:", error);
       } finally {
         setLoading(false);
       }
     };
+
     fetchProjects();
-    const interval = setInterval(fetchProjects, 300000);
-    return () => clearInterval(interval);
   }, []);
 
   if (loading) {
@@ -55,7 +52,7 @@ const GitHubProjects = () => {
   return (
     <div id="projects" className="w-full py-20">
       <h1 className="heading">
-        My <span className="text-purple"> Projects</span>
+        My <span className="text-purple">Starred Projects</span>
       </h1>
 
       <div className="w-full mt-12 grid lg:grid-cols-2 grid-cols-1 gap-10">
@@ -67,63 +64,49 @@ const GitHubProjects = () => {
             transition={{ duration: 0.3 }}
             className={cn(
               "relative overflow-hidden rounded-2xl border border-white/[0.1] group",
-              "bg-[linear-gradient(90deg,rgba(4,7,29,1)_0%,rgba(12,14,35,1)_100%)]"
+              "bg-[linear-gradient(90deg,rgba(4,7,29,1)_0%,rgba(12,14,35,1)_100%)]",
+              "p-6"
             )}
           >
-            <div className="p-6">
-              <div className="flex flex-col">
-                <h1 className="text-xl md:text-2xl font-bold text-white">
-                  {formatProjectName(project.name)}
-                </h1>
-                <p className="mt-3 text-gray-300">
-                  {project.description || "No description available"}
-                </p>
+            <div className="flex flex-col h-full">
+              <h1 className="text-xl md:text-2xl font-bold text-white">
+                {project.name
+                  .replace(/-/g, " ")
+                  .replace(/_/g, " ")
+                  .replace(/(^\w|\s\w)/g, (m) => m.toUpperCase())}
+              </h1>
+              <p className="mt-3 text-gray-300 flex-grow">
+                {project.description || "No description available"}
+              </p>
 
-                {/* Tech Stack */}
-                <div className="mt-4 flex flex-wrap gap-2">
-                  {project.topics?.map((topic, i) => (
-                    <span
-                      key={i}
-                      className="px-3 py-1 text-xs rounded-full bg-purple-900/50 text-purple-300"
-                    >
-                      {topic}
-                    </span>
-                  ))}
-                </div>
-
-                {/* Code Button */}
-                <div className="mt-6">
-                  <a
-                    href={project.html_url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={cn(
-                      "inline-flex items-center px-4 py-2 rounded-lg",
-                      "bg-purple-900 text-white hover:bg-purple-800 transition-colors",
-                      "border border-purple-700 hover:border-purple-500"
-                    )}
+              <div className="mt-4 flex flex-wrap gap-2">
+                {project.topics?.map((topic) => (
+                  <span
+                    key={topic}
+                    className="px-3 py-1 text-xs rounded-full bg-purple-900/50 text-purple-300"
                   >
-                    <TbBrandGithub className="mr-2" />
-                    View Code
-                  </a>
-                </div>
+                    {topic}
+                  </span>
+                ))}
               </div>
-            </div>
 
-            {/* Glow effect */}
-            <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_50%_120%,rgba(120,119,198,0.3),rgba(255,255,255,0))] opacity-0 group-hover:opacity-100 transition-opacity"></div>
+              <a
+                href={project.html_url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={cn(
+                  "mt-6 inline-flex items-center px-4 py-2 rounded-lg w-max",
+                  "bg-purple-900 text-white hover:bg-purple-800 transition-colors",
+                  "border border-purple-700 hover:border-purple-500"
+                )}
+              >
+                <TbBrandGithub className="mr-2" />
+                View Code
+              </a>
+            </div>
           </motion.div>
         ))}
       </div>
     </div>
   );
-};
-
-function formatProjectName(name: string): string {
-  return name
-    .replace(/-/g, " ")
-    .replace(/_/g, " ")
-    .replace(/(^\w|\s\w)/g, (m) => m.toUpperCase());
 }
-
-export default GitHubProjects;
