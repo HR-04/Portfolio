@@ -138,7 +138,7 @@ export const TechStackNotebook = () => {
           <div className="font-mono mb-6">
             <div className="text-purple-400">
               In [1]:{" "}
-              <span className="text-green-400">run_stack('{selectedTab}')</span>
+              <span className="text-green-400">{`run_stack('${selectedTab}')`}</span>
             </div>
 
             {isRunning && (
