@@ -57,13 +57,13 @@ export const TechStackNotebook = () => {
     // First phase: Execution animation
     setTimeout(() => {
       setActiveCategory(selectedTab);
-    }, 1000);
+    }, 250);
 
     // Second phase: Show results
     setTimeout(() => {
       setShowOutput(true);
       setIsRunning(false);
-    }, 2000);
+    }, 500);
   };
 
   const handleTabChange = (category: string) => {
@@ -214,6 +214,7 @@ const TechCard = ({ tech }: { tech: { name: string; img: string } }) => {
             duration: 3,
             repeat: Infinity,
             ease: "linear",
+            
           }}
         />
       </div>
