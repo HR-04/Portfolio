@@ -1,4 +1,4 @@
-import dynamic from "next/dynamic";
+import dynamic from 'next/dynamic';
 import Hero from "@/components/Hero";
 import Grid from "@/components/Grid";
 import Footer from "@/components/Footer";
@@ -8,14 +8,14 @@ import { TracingBeam } from "@/components/ui/TracingBeam";
 import { navItems } from "@/data";
 
 const GitHubProjects = dynamic(
-  () => import("@/components/GitHubProjects.client"),
-  {
+  () => import('@/components/GitHubProjects.client'),
+  { 
     ssr: false,
     loading: () => (
       <div className="flex justify-center items-center h-64">
         <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-purple-500"></div>
       </div>
-    ),
+    )
   }
 );
 
