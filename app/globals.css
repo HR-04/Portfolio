@@ -147,3 +147,94 @@
     border-color: #0f0e17;
   }
 }
+
+/* Notebook styling */
+.notebook-cell {
+  transition: all 0.3s ease;
+}
+
+.notebook-cell:before {
+  content: "In [ ]:";
+  color: #8b5cf6;
+  margin-right: 10px;
+}
+
+/* Animation for run button */
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.animate-pulse {
+  animation: pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+
+/* Tech Stack Styles */
+.shadow-purple-glow {
+  box-shadow: 0 0 10px rgba(139, 92, 246, 0.7);
+}
+
+/* Animated border effect */
+.tech-card-border {
+  position: relative;
+  overflow: hidden;
+}
+
+.tech-card-border::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    to bottom right,
+    rgba(139, 92, 246, 0) 45%,
+    rgba(139, 92, 246, 0.8) 50%,
+    rgba(139, 92, 246, 0) 55%
+  );
+  transform: rotate(30deg);
+  animation: shine 3s infinite linear;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.tech-card-border:hover::before {
+  opacity: 1;
+}
+
+@keyframes shine {
+  0% { transform: translateX(-100%) rotate(30deg); }
+  100% { transform: translateX(100%) rotate(30deg); }
+}
+
+
+/* Add to globals.css */
+@keyframes border-run {
+  0% { background-position: 100% 0; }
+  100% { background-position: -100% 0; }
+}
+
+.animated-border {
+  background: linear-gradient(90deg, #8b5cf6, #3b82f6, #8b5cf6);
+  background-size: 200% 100%;
+  animation: border-run 3s linear infinite;
+}
+
+.execution-dots span {
+  animation: dot-pulse 1.4s infinite ease-in-out;
+}
+
+.execution-dots span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.execution-dots span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes dot-pulse {
+  0%, 60%, 100% { opacity: 0.3; transform: scale(0.8); }
+  30% { opacity: 1; transform: scale(1.1); }
+}

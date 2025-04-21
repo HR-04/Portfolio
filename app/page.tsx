@@ -5,8 +5,6 @@ import { navItems } from "@/data";
 import Hero from "@/components/Hero";
 import Grid from "@/components/Grid";
 import Footer from "@/components/Footer";
-import Clients from "@/components/Clients";
-import Approach from "@/components/Approach";
 import Experience from "@/components/Experience";
 import RecentProjects from "@/components/RecentProjects";
 import { FloatingNav } from "@/components/ui/FloatingNavbar";
@@ -14,7 +12,7 @@ import Education from "@/components/Education";
 import { Achievements } from "@/components/Achievements";
 import { Certificates } from "@/components/Certificates";
 import { TracingBeam } from "@/components/ui/TracingBeam";
-import { TechStack } from "@/components/TechStack";
+import { TechStackNotebook } from "@/components/TechStackNotebook";
 
 const Home = () => {
   return (
@@ -24,14 +22,12 @@ const Home = () => {
         <TracingBeam className="px-4 sm:px-6">
           <Hero />
           <Grid />
-          <TechStack />
+          <TechStackNotebook />
           <Education />
           <RecentProjects />
-          {/* <Clients /> */}
           <Achievements />
           <Certificates />
           <Experience />
-          {/* <Approach /> */}
           <Footer />
         </TracingBeam>
       </div>
