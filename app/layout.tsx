@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter , Outfit } from "next/font/google";
 
 import "./globals.css";
 import { ThemeProvider } from "./provider";
 
 const inter = Inter({ subsets: ["latin"] });
+
+const outfit = Outfit({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Harini Rengarajan | AI Developer",
@@ -21,7 +23,7 @@ export default function RootLayout({
       <head>
         <link rel="icon" href="/HR1.png" sizes="any" />
       </head>
-      <body className={inter.className}>
+      <body className={outfit.className}>
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"

@@ -56,7 +56,7 @@ export const Achievements = () => {
       content: (
         <div className="p-4">
           <h3 className="text-xl font-bold text-white">
-            🏆 4th National Level Project Contest INNOFESTA'24 – 1st Prize
+            🏆 4th National Level Project Contest INNOFESTA&apos;24 – 1st Prize
             (₹25K)
           </h3>
           <p className="text-purple-300 mt-2">

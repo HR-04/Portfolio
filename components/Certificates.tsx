@@ -57,7 +57,7 @@ export const Certificates = () => {
       id: 11,
       image: "/cert11.jpg",
       caption:
-        " 4th National Level Project Contest INNOFESTA'24 – 1st Prize (₹25K)",
+        " 4th National Level Project Contest INNOFESTA&apos;24 – 1st Prize (₹25K)",
     },
     {
       id: 12,

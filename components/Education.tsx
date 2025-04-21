@@ -18,7 +18,7 @@ const Education = () => {
                 Kamaraj College of Engineering & Technology
               </h3>
               <p className="text-neutral-600 dark:text-neutral-300 mt-2">
-                Bachelor's Degree in Artificial Intelligence & Data Science
+                Bachelor&apos;s Degree in Artificial Intelligence & Data Science
               </p>
               <p className="text-purple-500 mt-2 font-medium">CGPA: 8.73</p>
             </div>
