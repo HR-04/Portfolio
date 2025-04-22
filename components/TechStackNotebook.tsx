@@ -57,13 +57,13 @@ export const TechStackNotebook = () => {
     // First phase: Execution animation
     setTimeout(() => {
       setActiveCategory(selectedTab);
-    }, 250);
+    }, 500);
 
     // Second phase: Show results
     setTimeout(() => {
       setShowOutput(true);
       setIsRunning(false);
-    }, 500);
+    }, 750);
   };
 
   const handleTabChange = (category: string) => {
