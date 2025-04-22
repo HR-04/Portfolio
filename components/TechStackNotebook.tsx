@@ -5,46 +5,46 @@ import Image from "next/image";
 
 const techCategories = {
   "AI/ML Core": [
-    { name: "Python", img: "/tech/python.jpg" },
+    { name: "Python", img: "/tech/python.webp" },
     { name: "Machine Learning", img: "/tech/ml.png" },
     { name: "Deep Learning", img: "/tech/dl.png" },
     { name: "NLP", img: "/tech/NLP.png" },
   ],
   "AI Frameworks": [
-    { name: "TensorFlow", img: "/tech/tensors.jpg" },
-    { name: "Pytorch", img: "/tech/pytorchs.jpg" },
+    { name: "TensorFlow", img: "/tech/tensor.png" },
+    { name: "Pytorch", img: "/tech/pytorch.png" },
     { name: " Axolotl", img: "/tech/Axolotl.jpg" },
-    { name: "CrewAI", img: "/tech/crew.jpg" },
+    { name: "CrewAI", img: "/tech/crew.png" },
   ],
   "Data Tools": [
     { name: "ScikitLearn", img: "/tech/scikit.png" },
-    { name: "MatPlotLib", img: "/tech/matplot.jpg" },
-    { name: "Seaborn", img: "/tech/seaborns.jpg" },
-    { name: "Tableau", img: "/tech/Tablea.jpg" },
+    { name: "MatPlotLib", img: "/tech/matplot.png" },
+    { name: "Seaborn", img: "/tech/seaborns.svg" },
+    { name: "Tableau", img: "/tech/tab.svg" },
   ],
   "GenAI Stack": [
-    { name: "Langchain", img: "/tech/Langchain.jpg" },
-    { name: "OpenAI", img: "/tech/openaii.jpg" },
-    { name: "Gemini", img: "/tech/gemini.png" },
-    { name: "Ollama", img: "/tech/ollama.jpg" },
+    { name: "Langchain", img: "/tech/langchain.png" },
+    { name: "OpenAI", img: "/tech/openaii.webp" },
+    { name: "Gemini", img: "/tech/gemini.webp" },
+    { name: "Ollama", img: "/tech/ollama.webp" },
   ],
-  "Vector Databases": [
-    { name: "Qdrant", img: "/tech/qdrant.jpg" },
-    { name: "Chroma", img: "/tech/chroma.jpg" },
+  "Vector DB": [
+    { name: "Qdrant", img: "/tech/qdrant.png" },
+    { name: "Chroma", img: "/tech/chroma.webp" },
     { name: "Faiss", img: "/tech/faiss.jpg" },
-    { name: "Convex", img: "/tech/convex.jpg" },
+    { name: "Convex", img: "/tech/convex.png" },
   ],
-  "Data Manipulation": [
+  "Data Preprocess": [
     { name: "Numpy", img: "/tech/numpy.svg" },
     { name: "Pandas", img: "/tech/pandas.png" },
     { name: "MongoDB", img: "/tech/mongodb.svg" },
     { name: "PostgreySQL", img: "/tech/postgrey.png" },
   ],
   "Web Dev": [
-    { name: "NextJS", img: "/tech/nextjs.jpg" },
-    { name: "TailwindCSS", img: "/tech/tailwind.jpg" },
+    { name: "NextJS", img: "/tech/nextjs.png" },
+    { name: "TailwindCSS", img: "/tech/tailwind.png" },
     { name: "Typescript", img: "/tech/ts.png" },
-    { name: "FastAPI", img: "/tech/fastapi.jpg" },
+    { name: "FastAPI", img: "/tech/fastapi.png" },
   ],
   Infrastructure: [
     { name: "Docker", img: "/tech/docker.svg" },
