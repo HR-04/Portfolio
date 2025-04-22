@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
+import MagicButton from "./MagicButton";
 
 interface GitHubProject {
   id: number;
@@ -94,14 +95,12 @@ export default function GitHubProjects() {
                 href={project.html_url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={cn(
-                  "mt-6 inline-flex items-center px-4 py-2 rounded-lg w-max",
-                  "bg-purple-900 text-white hover:bg-purple-800 transition-colors",
-                  "border border-purple-700 hover:border-purple-500"
-                )}
               >
-                <TbBrandGithub className="mr-2" />
-                View Code
+                <MagicButton
+                title="View Code"
+                icon = {<TbBrandGithub className="mr-2" />}
+                position="left"
+                />
               </a>
             </div>
           </motion.div>
