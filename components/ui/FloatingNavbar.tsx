@@ -72,7 +72,7 @@ export const FloatingNav = ({
         }}
       >
         {navItems.map((navItem: any, idx: number) => (
-          <Link
+          <a
             key={`link=${idx}`}
             href={navItem.link}
             className={cn(
@@ -83,7 +83,7 @@ export const FloatingNav = ({
             {/* add !cursor-pointer */}
             {/* remove hidden sm:block for the mobile responsive */}
             <span className=" text-sm !cursor-pointer">{navItem.name}</span>
-          </Link>
+          </a>
         ))}
         {/* remove this login btn */}
         {/* <button className="border text-sm font-medium relative border-neutral-200 dark:border-white/[0.2] text-black dark:text-white px-4 py-2 rounded-full">
