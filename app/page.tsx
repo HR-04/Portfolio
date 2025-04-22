@@ -28,7 +28,7 @@ export default function Home() {
         {/* <FloatingNav navItems={navItems} /> */}
         {/* <TracingBeam className="px-4 sm:px-6"> */}
           <Hero />
-          <Grid />
+          {/* <Grid /> */}
           <Education />
           {/* <Suspense
             fallback={
