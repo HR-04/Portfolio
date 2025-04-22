@@ -13,8 +13,8 @@ const techCategories = {
   "AI Frameworks": [
     { name: "TensorFlow", img: "/tech/tensor.png" },
     { name: "Pytorch", img: "/tech/pytorch.png" },
-    { name: "Numpy", img: "/tech/numpy.png" },
-    { name: "Pandas", img: "/tech/pandas.png" },
+    { name: "Axotyl", img: "/tech/axotyl.png" },
+    { name: "crewAI", img: "/tech/crewAI.png" },
   ],
   "Data Tools": [
     { name: "scikitLearn", img: "/tech/scikit.png" },
@@ -28,13 +28,25 @@ const techCategories = {
     { name: "Gemini", img: "/tech/gemini.png" },
     { name: "Ollama", img: "/tech/ollama.png" },
   ],
+  "Vector Databases": [
+    { name: "Qdrant", img: "/tech/qdrant.png" },
+    { name: "Chroma", img: "/tech/chroma.png" },
+    { name: "Faiss", img: "/tech/faiss.jpg" },
+    { name: "Convex", img: "/tech/convex.png" },
+  ],
+  "Data Manipulation": [
+    { name: "Numpy", img: "/tech/numpy.png" },
+    { name: "Pandas", img: "/tech/pandas.png" },
+    { name: "MongoDB", img: "/tech/mongo.png" },
+    { name: "PostgreySQL", img: "/tech/postgrey.png" },
+  ],
   "Web Dev": [
     { name: "NextJS", img: "/tech/next.png" },
     { name: "TailwindCSS", img: "/tech/tailwind.png" },
     { name: "Typescript", img: "/tech/ts.png" },
     { name: "FastAPI", img: "/tech/fastapi.png" },
   ],
-  Infrastructure: [
+  "Infrastructure": [
     { name: "Docker", img: "/tech/docker.svg" },
     { name: "Nginx", img: "/tech/nginx.jpg" },
     { name: "GitHub", img: "/tech/git.png" },
