@@ -2,13 +2,14 @@
 import { Suspense, useState } from "react";
 import { IoCopyOutline } from "react-icons/io5";
 import dynamic from "next/dynamic";
-import Lottie from "react-lottie-player";
+// import Lottie from "react-lottie-player"; to run in local
 import { cn } from "@/lib/utils";
 
 import { BackgroundGradientAnimation } from "./GradientBg";
 import GridGlobe from "./GridGlobe";
 import animationData from "@/data/confetti.json";
 import MagicButton from "../MagicButton";
+
 
 
 export const BentoGrid = ({
@@ -54,7 +55,14 @@ export const BentoGridItem = ({
 
   const [copied, setCopied] = useState(false);
 
-
+    const defaultOptions = {
+    loop: copied,
+    autoplay: copied,
+    animationData: animationData,
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid slice",
+    },
+  };
 
   const handleCopy = () => {
     const text = "harinirengarajan203@gmail.com";
@@ -67,7 +75,7 @@ export const BentoGridItem = ({
       "_blank"
     );
   };
-
+  const Lottie = dynamic(() => import("react-lottie"), { ssr: false });
 
   return (
     <div
@@ -160,14 +168,16 @@ export const BentoGridItem = ({
                   copied ? "block" : "block"
                 }`}
               >
-                <Lottie
+
+                 <Lottie options={defaultOptions} height={200} width={400} />
+                {/* <Lottie
                   loop={copied}
                   play={copied}
                   animationData={animationData}
                   style={{ width: 400, height: 200 }}
-                />
-              </div>
+                /> tO RUN Locally */ }
 
+              </div>
               <MagicButton
                 title=" View Resume"
                 icon={<IoCopyOutline />}
