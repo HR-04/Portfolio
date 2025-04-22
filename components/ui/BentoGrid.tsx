@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import { IoCopyOutline } from "react-icons/io5";
-import Lottie from "react-lottie";
+import dynamic from "next/dynamic";
 
 import { cn } from "@/lib/utils";
 
@@ -73,6 +73,7 @@ export const BentoGridItem = ({
       "_blank"
     );
   };
+  const Lottie = dynamic(() => import("react-lottie"), { ssr: false });
 
   return (
     <div
