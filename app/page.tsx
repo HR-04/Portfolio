@@ -10,6 +10,7 @@ import { TracingBeam } from "@/components/ui/TracingBeam";
 import { navItems } from "@/data";
 import { Achievements } from "@/components/Achievements";
 import { TechStackNotebook } from "@/components/TechStackNotebook";
+import { Certificates } from "@/components/Certificates";
 
 const GitHubProjects = dynamic(
   () => import("@/components/GitHubProjects.client"),
@@ -43,6 +44,7 @@ export default function Home() {
             <GitHubProjects />
           </Suspense>
           <Achievements />
+          <Certificates />
           <Footer />
         </TracingBeam>
       </div>
