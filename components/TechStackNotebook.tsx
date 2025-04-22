@@ -18,13 +18,13 @@ const techCategories = {
   ],
   "Data Tools": [
     { name: "ScikitLearn", img: "/tech/scikit.png" },
-    { name: "MatPlotLib", img: "/tech/matplot.png" },
-    { name: "Seaborn", img: "/tech/seaborns.svg" },
+    { name: "MatPlotLib", img: "/tech/matplotlib.png" },
+    { name: "Seaborn", img: "/tech/seaborn.svg" },
     { name: "Tableau", img: "/tech/tab.svg" },
   ],
   "GenAI Stack": [
     { name: "Langchain", img: "/tech/langchain.png" },
-    { name: "OpenAI", img: "/tech/openaii.webp" },
+    { name: "OpenAI", img: "/tech/opeanaii.webp" },
     { name: "Gemini", img: "/tech/gemini.webp" },
     { name: "Ollama", img: "/tech/ollama.webp" },
   ],
@@ -50,7 +50,7 @@ const techCategories = {
     { name: "Docker", img: "/tech/docker.svg" },
     { name: "Nginx", img: "/tech/nginx.svg" },
     { name: "GitHub", img: "/tech/github.svg" },
-    { name: "Anaconda", img: "/tech/anaconda.jpg" },
+    { name: "Anaconda", img: "/tech/anaconda.png" },
   ],
 };
 
