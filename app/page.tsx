@@ -8,6 +8,8 @@ import Education from "@/components/Education";
 import { FloatingNav } from "@/components/ui/FloatingNavbar";
 import { TracingBeam } from "@/components/ui/TracingBeam";
 import { navItems } from "@/data";
+import { Achievements } from "@/components/Achievements";
+import { TechStackNotebook } from "@/components/TechStackNotebook";
 
 const GitHubProjects = dynamic(
   () => import("@/components/GitHubProjects.client"),
@@ -29,6 +31,7 @@ export default function Home() {
         <TracingBeam className="px-4 sm:px-6">
           <Hero />
           {/* <Grid /> */}
+          <TechStackNotebook />
           <Education />
           <Suspense
             fallback={
@@ -39,6 +42,7 @@ export default function Home() {
           >
             <GitHubProjects />
           </Suspense>
+          <Achievements />
           <Footer />
         </TracingBeam>
       </div>
